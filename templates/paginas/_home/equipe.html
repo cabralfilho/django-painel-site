@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% if membros %}
+    <section class="team ptb-100">
+        <section class="section-title">
+            <div class="container text-center">
+                <h2>Nossa Equipe</h2>
+                <span class="bordered-icon"><i class="fa fa-circle-thin"></i></span>
+            </div>
+        </section>
+        <div class="container">
+            <div class="row">
+                {% for membro in membros %}
+                    <div class="col-sm-4">
+                        <figure class="thumbnail">
+                            <a href="#"><img src="{{ membro.imagem.url }}" class="img-responsive"
+                                             alt="Image"></a>
+                            <figcaption class="caption text-center">
+                                <h3>{{ membro.nome }} -
+                                    <small>{{ membro.cargo }}</small>
+                                </h3>
+                            </figcaption>
+                        </figure>
+                    </div>
+                <!-- /.col-sm-4 -->
+                {% endfor %}
+
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+    <!-- .team -->
+{% endif %}

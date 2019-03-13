@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'layouts/site.html' %}
+
+{% block content %}
+    <section class="single-page-title">
+        <div class="container text-center">
+            <h2>{{ pagina.titulo }}</h2>
+        </div>
+    </section>
+
+    <section class="about-text ptb-100">
+        <section class="section-title">
+            <div class="container text-center">
+                <h2>{{ pagina.resumo }}</h2>
+                <span class="bordered-icon"><i class="fa fa-circle-thin"></i></span>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    {{ pagina.conteudo|safe }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

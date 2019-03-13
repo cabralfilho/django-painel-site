@@ -1,10 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% load static %}
+
+{% if capacidades %}
+    <section class="x-features">
+        <section class="section-title">
+            <div class="container text-center">
+                <h2>Nossa capacidades</h2>
+                <span class="bordered-icon"><i class="fa fa-circle-thin"></i></span>
+            </div>
+        </section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 img-left">
+                    <img class="img-responsive" src="{% static "img/img-about.png" %}" alt="">
+                </div>
+                <div class="col-md-6">
+                    {% for capacidade in capacidades %}
+                        <div class="promo-block-wrapper clearfix">
+                            {% if capacidade.icone %}
+                                <div class="promo-icon">
+                                    <i class="{{ capacidade.icone }}"></i>
+                                </div>
+                            {% endif %}
+                            <div class="promo-content">
+                                <h3>{{ capacidade.titulo }}</h3>
+
+                                <p>{{ capacidade.descricao }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- .x-features -->
+{% endif %}
