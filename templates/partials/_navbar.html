@@ -44,7 +44,7 @@
                 <li {% if '/' == request.path %}class="active"{% endif %}><a href="{% url 'home' %}">Início</a></li>
                 <li {% if 'sobre/' in request.path %}class="active"{% endif %}><a href="{% url 'sobre' %}">Sobre</a></li>
                 <li {% if 'servicos/' in request.path %}class="active"{% endif %}><a href="{% url 'servicos' %}">Serviços</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li {% if 'contato/' in request.path %}class="active"{% endif %}><a href="{% url 'contato' %}">Contato</a></li>
                 <li class="dropdown m-menu-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Features
                     <span><i class="fa fa-angle-down"></i></span></a>
                     <ul class="dropdown-menu">

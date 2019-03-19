@@ -1,0 +1,70 @@
+{% extends 'layouts/site.html' %}
+
+{% block content %}
+    <section class="single-page-title">
+        <div class="container text-center">
+            <h2>{{ titulo }}</h2>
+        </div>
+    </section>
+
+    <section class="contact-form ptb-100">
+        <div class="container text-center">
+            <h2>Preencha com seus dados abaixo e informe sua sugestão ou dúvidas nos campos abaixo e clique em enviar.</h2>
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <form action={% url 'contato' %} method="post" novalidate>
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group user-name">
+                                    <label for="{{ form.nome.name }}" class="sr-only">{{ form.nome.label }}</label>
+                                    {{ form.nome }}
+                                    <div class="invalid-feedback">
+                                        {{ form.nome.errors }}
+                                    </div>
+                                </div>
+
+                                <div class="form-group user-email">
+                                    <label for="{{ form.email.name }}" class="sr-only">{{ form.email.label }}</label>
+                                    {{ form.email }}
+                                    <div class="invalid-feedback">
+                                        {{ form.email.errors }}
+                                    </div>
+                                </div>
+
+                                <div class="form-group user-phone">
+                                    <label for="{{ form.telefone.name }}" class="sr-only">{{ form.telefone.label }}</label>
+                                    {{ form.telefone }}
+                                    <div class="invalid-feedback">
+                                        {{ form.telefone.errors }}
+                                    </div>
+                                </div>
+
+                            </div><!-- /.col-md-6 -->
+                            <div class="col-md-6">
+                                <div class="form-group user-message">
+                                    <label for="{{ form.mensagem.name }}" class="sr-only">{{ form.mensagem.label }}</label>
+                                    {{ form.mensagem }}
+                                    <div class="invalid-feedback">
+                                        {{ form.mensagem.errors }}
+                                    </div>
+                                </div>
+                            </div><!-- /.col-md-6 -->
+                        </div><!-- /.row-->
+                        <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+                    </form>
+                </div><!-- /.col-md-8 -->
+            </div>
+
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div id="googleMap"></div>
+    </section>
+{% endblock %}
+
+{% block script %}
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+{% endblock %}

@@ -1,5 +1,12 @@
+{% load static %}
+
 {% include 'partials/_header.html' %}
 
 {% block content %}{% endblock %}
+
+
+<script>var STATIC_URL = {% static '' %};</script>
+
+{% block script %}{% endblock %}
 
 {% include 'partials/_footer.html' %}

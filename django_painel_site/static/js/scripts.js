@@ -118,7 +118,7 @@ jQuery(function ($) {
                 $map_zoom = 16; /* ZOOM SETTING */
 
             //google map custom marker icon
-            var $marker_url = 'img/google-map-marker.png';
+            var $marker_url = STATIC_URL + 'img/google-map-marker.png';
 
             //we define here the style of the map
             var style = [{
