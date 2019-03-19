@@ -57,8 +57,8 @@
 
                         <ul class="list-inline pull-right">
                             <li {% if '/' == request.path %}class="active"{% endif %}><a href="{% url 'home' %}">Início</a></li>
-                            <li {% if 'sobre/' in request.path %}class="active"{% endif %}><a href="{% url 'pagina' 'sobre' %}">Sobre</a></li>
-                            <li><a href="#">Services</a></li>
+                            <li {% if 'sobre/' in request.path %}class="active"{% endif %}><a href="{% url 'sobre' %}">Sobre</a></li>
+                            <li {% if 'servicos/' in request.path %}class="active"{% endif %}><ahref="{% url 'servicos' %}">Serviços</a></li>
                             <li><a href="#">Portfolio</a></li>
                             <li><a href="#">Blog</a></li>
                             <li><a href="#">Contact</a></li>

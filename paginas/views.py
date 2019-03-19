@@ -4,6 +4,8 @@ from banners.models import Banner
 from servicos.models import Servico
 from capacidades.models import Capacidade
 from membros.models import Membro
+from depoimentos.models import Depoimento
+from clientes.models import Cliente
 
 
 def home(request):
@@ -11,12 +13,16 @@ def home(request):
     servicos = Servico.objects.order_by('titulo').all()[:4]
     capacidades = Capacidade.objects.order_by('titulo').all()
     membros = Membro.objects.order_by('nome').all()
+    depoimentos = Depoimento.objects.order_by('?').all()[:4]
+    clientes = Cliente.objects.order_by('?').all()[:6]
 
     context = {
         'banners': banners,
         'servicos': servicos,
         'capacidades': capacidades,
-        'membros': membros
+        'membros': membros,
+        'depoimentos': depoimentos,
+        'clientes': clientes
     }
 
     return render(request, 'paginas/home.html', context)

@@ -1,0 +1,44 @@
+{% if depoimentos %}
+    <section class="testimonial">
+        <section class="section-title">
+            <div class="container text-center">
+                <h2>Clientes Satisfeitos</h2>
+                <span class="bordered-icon"><i class="fa fa-circle-thin"></i></span>
+            </div>
+        </section>
+        <div class="container">
+            <div id="testimonialSlider" class="carousel slide" data-ride="carousel">
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    {% for depoimento in depoimentos %}
+                        <div class="item {% if forloop.counter0 == 0 %}active{% endif %}">
+                            <blockquote>
+                                <ul>
+                                    <li>
+                                        <img src="{{ depoimento.imagem.url }}" alt="" class="img-responsive">
+                                    </li>
+                                    <li class="name">{{ depoimento.nome }}</li>
+                                </ul>
+                                <p>{{ depoimento.depoimento }}</p>
+                            </blockquote>
+                        </div>
+                    {% endfor %}
+                </div>
+                {% if depoimentos.count > 1 %}
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#testimonialSlider" role="button" data-slide="prev">
+                        <span><i class="fa fa-angle-left"></i></span>
+                        <span class="sr-only">Anterior</span>
+                    </a>
+                    <a class="right carousel-control" href="#testimonialSlider" role="button" data-slide="next">
+                        <span><i class="fa fa-angle-right"></i></span>
+                        <span class="sr-only">Próximo</span>
+                    </a>
+                {% endif %}
+            </div>
+            <!-- #testimonialSlider -->
+        </div>
+    </section>
+    <!-- .testimonial -->
+{% endif %}
