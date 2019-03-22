@@ -13,42 +13,42 @@
 
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <form action={% url 'contato' %} method="post" novalidate>
+                    <form action="{% url 'contato' %}" method="post" novalidate>
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group user-name">
+                                <div class="form-group user-name {% if form.nome.errors %}has-error{% elif form_submitted %}has-success{% endif %}">
                                     <label for="{{ form.nome.name }}" class="sr-only">{{ form.nome.label }}</label>
                                     {{ form.nome }}
-                                    <div class="invalid-feedback">
+                                    <span class="help-block">
                                         {{ form.nome.errors }}
-                                    </div>
+                                    </span>
                                 </div>
 
-                                <div class="form-group user-email">
+                                <div class="form-group user-email {% if form.email.errors %}has-error{% elif form_submitted %}has-success{% endif %}">
                                     <label for="{{ form.email.name }}" class="sr-only">{{ form.email.label }}</label>
                                     {{ form.email }}
-                                    <div class="invalid-feedback">
+                                    <span class="help-block">
                                         {{ form.email.errors }}
-                                    </div>
+                                    </span>
                                 </div>
 
-                                <div class="form-group user-phone">
+                                <div class="form-group user-phone {% if form.telefone.errors %}has-error{% elif form_submitted %}has-success{% endif %}">
                                     <label for="{{ form.telefone.name }}" class="sr-only">{{ form.telefone.label }}</label>
                                     {{ form.telefone }}
-                                    <div class="invalid-feedback">
+                                    <span class="help-block">
                                         {{ form.telefone.errors }}
-                                    </div>
+                                    </span>
                                 </div>
 
                             </div><!-- /.col-md-6 -->
                             <div class="col-md-6">
-                                <div class="form-group user-message">
+                                <div class="form-group user-message {% if form.mensagem.errors %}has-error{% elif form_submitted %}has-success{% endif %}">
                                     <label for="{{ form.mensagem.name }}" class="sr-only">{{ form.mensagem.label }}</label>
                                     {{ form.mensagem }}
-                                    <div class="invalid-feedback">
+                                    <span class="help-block">
                                         {{ form.mensagem.errors }}
-                                    </div>
+                                    </span>
                                 </div>
                             </div><!-- /.col-md-6 -->
                         </div><!-- /.row-->

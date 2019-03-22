@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.core.mail import send_mail
 from .models import Pagina
 from banners.models import Banner
 from servicos.models import Servico
@@ -35,15 +36,29 @@ def home(request):
 
 
 def contato(request):
+    form_submitted = False;
+
     if request.method == 'GET':
         form = FormularioContato()
     else:
+        # Envio de email
+        form_submitted = True
         form = FormularioContato(request.POST)
         if form.is_valid():
-            # Enviar email
-            print('enviar_email')
+            mensagem = 'Nome: ' + form.cleaned_data['nome']
+            mensagem += '\nE-mail: ' + form.cleaned_data['email']
+            mensagem += '\nTelefone: ' + form.cleaned_data['telefone']
+            mensagem += '\nMensagem: ' + form.cleaned_data['mensagem']
+            send_mail(
+                'Formulário de contato',
+                mensagem,
+                form.cleaned_data['email'],
+                ['richellyitalo@gmail.com']
+            )
+            return redirect('contato')
 
     context = {
-        'form': form
+        'form': form,
+        'form_submitted': form_submitted
     }
     return render(request, 'paginas/contato.html', context)

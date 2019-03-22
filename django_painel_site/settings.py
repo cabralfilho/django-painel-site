@@ -138,3 +138,9 @@ MEDIA_URL = '/media/'
 
 # Configuração Ckeditor
 CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
+
+# Configuração de E-mail
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '-'
+EMAIL_HOST_PASSWORD = '-'
+EMAIL_PORT = '2525'
